@@ -47,7 +47,6 @@ For a CSV file:
 ```bash
 python predict.py --csv your_input_file.csv
 ```
-verbatumi.
 Ensure if using your own .csv file to have the header written as "smiles" verbatum. 
 
 The script will output predictions in terminal for single prediction or in output csv called 'your_input_file_predict.csv' with the following properties:
