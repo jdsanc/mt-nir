@@ -4,7 +4,7 @@ This repository contains code for predicting near-infrared (NIR) and UV-Vis  pro
 
 ## Features
 
-- Current prediction capabilties of photochemical properties
+Current prediction capabilties of photochemical properties
   - Maximum absorption wavelength (nm)
   - Extinction coefficient (log(M^-1 cm^-1))
   - Photoisomerization quantum yield
