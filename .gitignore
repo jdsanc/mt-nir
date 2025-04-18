@@ -52,7 +52,6 @@ exp_results/
 
 # Re-ignore all fold subdirs
 exp_results/03232025_split/checkpoints/chemprop_weights_RIGR_ensemble_03232025/fold_0/model_*/*
-
 # Then allow best.pt in each fold
 !exp_results/03232025_split/checkpoints/chemprop_weights_RIGR_ensemble_03232025/fold_0/model_*/best.pt
 
