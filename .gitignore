@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+# wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Data and results
+data/
+*.csv
+*.pkl
+*.h5
+*.npy
+*.npz
+
+# By default ignore exp_results directory
+exp_results/
+# But not this specific directory
+!exp_results/03232025_split
+!exp_results/03232025_split/**
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+
+# Slurm
+slurm/**
+
+# Scripts
+scripts/**
+
+# Plotting
+plotting/**

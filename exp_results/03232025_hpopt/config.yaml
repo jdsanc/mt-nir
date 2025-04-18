@@ -1,0 +1,5 @@
+depth 3 
+dropout 0.05
+ffn-num-layers 3
+ffn-hidden-dim 1500
+message-hidden-dim 1500
