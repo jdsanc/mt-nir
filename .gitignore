@@ -45,13 +45,16 @@ exp_results/
 
 # Allow specific subdirectory and contents
 !exp_results/03232025_split/
-!exp_results/03232025_split/**
+!exp_results/03232025_split/checkpoints/
+!exp_results/03232025_split/checkpoints/chemprop_weights_RIGR_ensemble_03232025/
+!exp_results/03232025_split/checkpoints/chemprop_weights_RIGR_ensemble_03232025/fold_0/
+!exp_results/03232025_split/checkpoints/chemprop_weights_RIGR_ensemble_03232025/fold_0/model_*/
 
 # Re-ignore all fold subdirs
-exp_results/03232025_split/checkpoints/chemprop_weights_RIGR_ensemble_03232025/fold_*/
+exp_results/03232025_split/checkpoints/chemprop_weights_RIGR_ensemble_03232025/fold_0/model_*/*
 
 # Then allow best.pt in each fold
-!exp_results/03232025_split/checkpoints/chemprop_weights_RIGR_ensemble_03232025/fold_*/best.pt
+!exp_results/03232025_split/checkpoints/chemprop_weights_RIGR_ensemble_03232025/fold_0/model_*/best.pt
 
 # Logs
 *.log
