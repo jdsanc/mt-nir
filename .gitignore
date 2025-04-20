@@ -41,7 +41,7 @@ data/
 *.npz
 
 # By default ignore exp_results directory
-exp_results/
+exp_results/**
 
 # Logs
 *.log
