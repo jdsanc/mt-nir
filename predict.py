@@ -8,6 +8,7 @@ import subprocess
 import tempfile
 from typing import List
 from rdkit import Chem
+from rdkit.Chem import CanonSmiles
 
 logger = logging.getLogger(__name__)
 
@@ -76,6 +77,26 @@ class ChempropPredictor(BasePredictor):
         self.models_path = models_path
         logger.info(f"Initialized ChempropPredictor with model at {models_path}")
     
+    def canonicalize_smiles(self, smiles: str) -> str:
+        """
+        Canonicalize a SMILES string using RDKit
+        
+        Args:
+            smiles (str): Input SMILES string
+            
+        Returns:
+            str: Canonicalized SMILES string
+        """
+        try:
+            mol = Chem.MolFromSmiles(smiles)
+            if mol is None:
+                logger.warning(f"Invalid SMILES: {smiles}")
+                return None
+            return Chem.MolToSmiles(mol, isomericSmiles=True)
+        except Exception as e:
+            logger.error(f"Error canonicalizing SMILES {smiles}: {e}")
+            return None
+    
     def predict_single(self, smiles: str) -> List[float]:
         """
         Predict properties for a single SMILES string using chemprop CLI.
@@ -86,11 +107,17 @@ class ChempropPredictor(BasePredictor):
         Returns:
             List[float]: List of mean predictions across the ensemble
         """
-        logger.debug(f"Predicting properties for: {smiles}")
+        # Canonicalize SMILES first
+        canonical_smiles = self.canonicalize_smiles(smiles)
+        if canonical_smiles is None:
+            logger.error(f"Could not canonicalize SMILES: {smiles}")
+            return None
+            
+        logger.debug(f"Predicting properties for: {canonical_smiles}")
         try:
-            # Create temporary input file with SMILES
+            # Create temporary input file with canonicalized SMILES
             with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
-                f.write("smiles\n" + smiles)
+                f.write("smiles\n" + canonical_smiles)
                 temp_input = f.name
             
             # Create temporary output file
@@ -140,7 +167,7 @@ class ChempropPredictor(BasePredictor):
             if len(means) < 3:
                 means.extend([float("-inf")] * (3 - len(means)))
             
-            logger.info(f"Properties for {smiles[:20]}...: {means}")
+            logger.info(f"Properties for {canonical_smiles[:20]}...: {means}")
             return means
             
         except Exception as e:
@@ -197,6 +224,7 @@ def main():
             preds = predictor.predict_single(smiles)
             results.append({
                 'smiles': smiles,
+                'canonical_smiles': predictor.canonicalize_smiles(smiles),
                 'max_abs_wavelength(nm)': int(round(preds[0], 0)),
                 'extinct_coeff(log(M^-1 cm^-1))': round(preds[1], 2),
                 'photoisomerization_QY': round(preds[2], 2)
