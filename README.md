@@ -1,4 +1,4 @@
-# MT-NIR: Multi-task UV-vis Near-Infrared Property Prediction
+# MT-NIR: Multi-task Photochemical Property Prediction Model (uvvis-nir range)
 
 This repository contains code for predicting near-infrared (NIR) and UV-Vis  properties of photoswitches using multitask learning with Chemprop.
 
@@ -8,6 +8,22 @@ Current prediction capabilties of photochemical properties
   - Maximum absorption wavelength (nm)
   - Extinction coefficient (log(M^-1 cm^-1))
   - Photoisomerization quantum yield
+
+## Citation
+
+If you use this software in your research, please cite it using the following:
+
+```bibtex
+@software{mt-nir,
+  author = {Jesus Diaz Sanchez},
+  title = {MT-NIR: Multi-task Photochemical Property Prediction Model},
+  year = {2024},
+  url = {https://github.com/jdsanc/mt-nir},
+  version = {1.0.0}
+}
+```
+
+You can also use the CITATION.cff file in the repository for citation information.
 
 ## Installation
 
