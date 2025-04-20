@@ -70,7 +70,7 @@ You can handle both single SMILES strings and CSV files for bulk prediction:
 
 For a single SMILES:
 ```bash
-python predict.py --smiles "CC(=O)OC1=CC=CC=C1C(=O)O"
+python predict.py --smiles "C1=CC=C(C=C1)N=NC2=CC=CC=C2"
 ```
 Ensure you surround your input smiles by quotes ""
 
