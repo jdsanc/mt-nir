@@ -42,6 +42,7 @@ data/
 
 # By default ignore exp_results directory
 exp_results/**
+*.ckpt
 
 # Logs
 *.log
@@ -54,6 +55,8 @@ logs/
 
 # Slurm
 slurm/**
+*.out
+*.err
 
 # Scripts
 scripts/**

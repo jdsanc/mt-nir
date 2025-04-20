@@ -15,16 +15,46 @@ Current prediction capabilties of photochemical properties
 
 First, install Miniconda3 if you haven't already:
 
+#### macOS:
+You can install Miniconda using Homebrew (recommended) or download directly:
+
+##### Option 1: Using Homebrew
+```bash
+# Install Homebrew if you don't have it
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install Miniconda
+brew install --cask miniconda
+```
+
+##### Option 2: Direct Download
+```bash
+# Download Miniconda
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+
+# Install Miniconda
+bash Miniconda3-latest-MacOSX-x86_64.sh
+```
+
 #### Linux:
 ```bash
+# Download Miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+# Install Miniconda
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
-#### macOS:
+For Linux users, you might need to install wget first:
 ```bash
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-bash Miniconda3-latest-MacOSX-x86_64.sh
+# Ubuntu/Debian
+sudo apt-get install wget
+
+# CentOS/RHEL
+sudo yum install wget
+
+# Fedora
+sudo dnf install wget
 ```
 
 Follow the prompts during installation. After installation, restart your terminal or run:
@@ -32,6 +62,8 @@ Follow the prompts during installation. After installation, restart your termina
 source ~/.bashrc  # Linux
 source ~/.zshrc   # macOS
 ```
+
+For more detailed Linux commands and troubleshooting, refer to the [Linux Command Line Guide](https://www.guru99.com/linux-commands-cheat-sheet.html).
 
 ### 2. Clone the Repository
 ```bash
