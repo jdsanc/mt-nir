@@ -192,7 +192,7 @@ def parse_args():
     parser.add_argument('--smiles', type=str, help='SMILES string to predict properties for')
     parser.add_argument('--csv', type=str, help='Path to CSV file containing SMILES strings')
     parser.add_argument('--models_path', type=str, 
-                       default='./models/chemprop_weights/ensemble_03232025/fold_0',
+                       default='./models/chemprop_weights/ensemble_04202025/fold_0',
                        help='Path to the trained model checkpoint')
     return parser.parse_args()
 
